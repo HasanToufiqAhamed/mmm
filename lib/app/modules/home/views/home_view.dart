@@ -70,7 +70,7 @@ class HomeView extends GetView<HomeController> {
               controller.selectedHomeIndex.value = index;
               controller.pageViewController.animateToPage(
                 index,
-                duration: const Duration(microseconds: 100),
+                duration: const Duration(microseconds: 110),
                 curve: Curves.easeInOut,
               );
             },
