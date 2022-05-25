@@ -36,7 +36,7 @@ class HomeView extends GetView<HomeController> {
         () {
           return BottomNavigationBar(
             elevation: 20,
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Bottom_nav_bar.home),
@@ -60,7 +60,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
             currentIndex: controller.selectedHomeIndex.value,
-            selectedFontSize: 12,
+            selectedFontSize: 11,
             unselectedFontSize: 10,
             iconSize: 24,
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),

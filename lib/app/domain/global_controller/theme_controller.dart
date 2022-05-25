@@ -31,6 +31,9 @@ class ThemeController extends GetxController {
   _loadFromPrefs() async {
     await _initPrefs();
     darkTheme.value = _pref!.getBool(key) ?? false;
+    if(!darkTheme.value){
+      update();
+    }
   }
 
   _saveToPrefs() async {
