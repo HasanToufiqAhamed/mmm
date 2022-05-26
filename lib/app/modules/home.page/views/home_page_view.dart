@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:mmm/app/domain/global_controller/theme_controller.dart';
+import 'package:mmm/app/modules/edit_cost.page/views/edit_cost_page_view.dart';
+import 'package:mmm/app/routes/app_page_routing_helper.dart';
 
 import '../controllers/home_page_controller.dart';
 
-class HomePageView extends GetView<HomePageController> {
+class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
 
+  @override
+  State<HomePageView> createState() => _HomePageViewState();
+}
+
+class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,16 +57,26 @@ class HomePageView extends GetView<HomePageController> {
               itemCount: 20,
               itemBuilder: (context, i) {
                 return ListTile(
-                  onTap: () {},
-                  leading: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent,
-                      borderRadius: BorderRadius.circular(1000),
-                    ),
-                    padding: const EdgeInsets.all(6),
-                    child: const Icon(
-                      Icons.adjust,
-                      color: Colors.white,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditCostPageView(tagIcon: 'icon_hero_$i'),
+                      ),
+                    );
+                  },
+                  leading: Hero(
+                    tag: 'icon_hero_$i',
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.lightBlueAccent,
+                        borderRadius: BorderRadius.circular(1000),
+                      ),
+                      padding: const EdgeInsets.all(6),
+                      child: const Icon(
+                        Icons.adjust,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   title: Row(
